@@ -1,0 +1,26 @@
+.no-style-list {
+    list-style-type: none;
+    list-style-position: inside;
+    padding-left: 0;
+}
+
+.scene-item {
+    height: 20px;
+    border: 2px solid white;
+    border-radius: 10px;
+    display: inline-block;
+    color: white;
+    padding: 16px;
+    margin: 8px;
+    background-color: black;
+    text-align: center;
+}
+
+.scene-item_pressed {
+    color: black;
+    background-color: white;
+}
+
+.scene-item-content {
+
+}

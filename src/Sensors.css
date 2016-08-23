@@ -1,0 +1,26 @@
+.no-style-list {
+    list-style-type: none;
+    list-style-position: inside;
+    padding-left: 0;
+}
+
+.sensor-item {
+    width: 60px;
+    height: 60px;
+    border: 2px solid white;
+    border-radius: 60px;
+    display: inline-block;
+    color: white;
+    padding: 16px;
+    margin: 8px;
+    background-color: black;
+    text-align: center;
+}
+
+.sensor-item-header {
+
+}
+
+.sensor-item-content {
+
+}
