@@ -32,7 +32,7 @@ const scenes = Bacon.fromPromise($.ajax({
   .map(R.filter(R.pipe(R.prop('entity_id'), startsWith('scene'))))
   .map(R.map(data => ({name: data.attributes.friendly_name, entityId: data.entity_id})))
 
-const sensorData = Bacon.combineAsArray(sensorStreams).log('values').map(R.map(data => ({
+const sensorData = Bacon.combineAsArray(sensorStreams).map(R.map(data => ({
   name: data.attributes.friendly_name,
   value: data.state + data.attributes.unit_of_measurement
 })))
