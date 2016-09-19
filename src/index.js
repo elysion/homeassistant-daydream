@@ -19,7 +19,7 @@ const headers = {
 const randomCoordinate = max => Math.round(Math.random() * max)
 
 const coordinates = Bacon.once().map(() => ({ x: randomCoordinate(50), y: randomCoordinate(200) }))
-const sensorStreams = sensorEntities
+const sensorStreams = R.keys(sensorEntities)
   .map(entity => Bacon.fromPromise($.ajax({
     url: `${homeAssistantApiUrl}/states/${entity}`,
     headers: headers
@@ -33,8 +33,8 @@ const scenes = Bacon.fromPromise($.ajax({
   .map(R.map(data => ({name: data.attributes.friendly_name, entityId: data.entity_id})))
 
 const sensorData = Bacon.combineAsArray(sensorStreams).map(R.map(data => ({
-  name: data.attributes.friendly_name,
-  value: data.state + data.attributes.unit_of_measurement
+  name: sensorEntities[data.entity_id].title,
+  value: data.state + (data.attributes.unit_of_measurement || '')
 })))
 
 sceneClicked.onValue(entityId => {
