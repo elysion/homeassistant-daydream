@@ -16,7 +16,7 @@
     text-align: center;
 }
 
-.scene-item_pressed {
+.scene-item:active {
     color: black;
     background-color: white;
 }

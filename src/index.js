@@ -40,12 +40,12 @@ const scenes = Bacon.fromPromise($.ajax({
 
 const sensorData = sensorStatesStream.map(R.map(data => ({
   name: sensorEntities[data.entity_id].title,
-  entityId: data.entity_id,
   value: data.state + (data.attributes.unit_of_measurement || '')
 })))
 
 const switchData = switchStatesStream.map(R.map(data => ({
   name: switchEntities[data.entity_id].title,
+  entityId: data.entity_id,  
   isOn: data.state === "on"
 })))
 
