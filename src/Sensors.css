@@ -5,8 +5,8 @@
 }
 
 .sensor-item {
-    width: 80px;
     height: 80px;
+    min-width: 80px;
     border: 2px solid white;
     border-radius: 60px;
     display: inline-block;

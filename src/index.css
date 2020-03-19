@@ -7,8 +7,14 @@ body {
   background-color: black;
   text-align: center;
   font-size: 150%;
+  color: white;
+}
+
+input {
+  font-family: 'Lato', sans-serif;
+  padding: 1px 10px;
 }
 
 .wrapper {
-  width: 75%;
+  width: 85%;
 }

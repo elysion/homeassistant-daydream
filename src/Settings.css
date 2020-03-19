@@ -1,0 +1,65 @@
+.settings-switch > input {
+    display: none;
+}
+
+.settings-button {
+    width: 30px;
+    height: 30px;
+    border: 2px solid white;
+    border-radius: 60px;
+    display: inline-block;
+    color: white;
+    padding: 16px;
+    margin: 8px;
+    background-color: black;
+    text-align: center;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    opacity: 0.2;
+}
+
+.settings-item-id {
+    width: 500px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+.settings-item-name {
+    border: 1px solid black;
+    border-radius: 5px;
+    vertical-align: top;
+    height: 100%;
+    flex: 1;
+}
+
+.settings-switch input:checked + .settings-button, .settings-switch input:checked + .settings-item {
+    color: black;
+    background-color: white;
+    opacity: 1;    
+}
+
+.no-style-list {
+    list-style-type: none;
+    list-style-position: inside;
+    padding-left: 0;
+    white-space: nowrap;
+}
+
+.settings-item {
+    height: 30px;
+    border: 2px solid white;
+    border-radius: 10px;
+    display: flex;
+    color: white;
+    padding: 10px;
+    margin: 10px;
+    background-color: black;
+    text-align: left;
+}
+
+.settings-item:active {
+    color: black;
+    background-color: white;
+}
