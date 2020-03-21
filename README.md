@@ -7,6 +7,8 @@ By default the page will display data for sensors listed in settings.js and all 
 
 The project was created using [create-react-app](https://github.com/facebookincubator/create-react-app)
 
+![image](daydream.png)
+
 ## Configuration
 
 In order for the page to be able to communicate with the
