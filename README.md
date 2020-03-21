@@ -5,8 +5,6 @@ Static webpage to be used to control
 from Android Daydream screen using
 [Website Daydream](https://play.google.com/store/apps/details?id=uk.co.liamnewmarch.daydream).
 
-By default the page will display data for sensors listed in settings.js and all scenes from Home Assistant.
-
 The project was created using [create-react-app](https://github.com/facebookincubator/create-react-app)
 
 ## Configuration
