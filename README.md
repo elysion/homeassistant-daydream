@@ -1,3 +1,5 @@
+<img src="daydream.png" height="400" align="right"/>
+
 Static webpage to be used to control
 [Home Assistant](https://play.google.com/store/apps/details?id=uk.co.liamnewmarch.daydream)
 from Android Daydream screen using
@@ -6,8 +8,6 @@ from Android Daydream screen using
 By default the page will display data for sensors listed in settings.js and all scenes from Home Assistant.
 
 The project was created using [create-react-app](https://github.com/facebookincubator/create-react-app)
-
-![image](daydream.png)
 
 ## Configuration
 
