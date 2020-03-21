@@ -12,8 +12,7 @@ The project was created using [create-react-app](https://github.com/facebookincu
 ## Configuration
 
 In order for the page to be able to communicate with the
-[Home Assistant REST API](https://home-assistant.io/developers/rest_api/) you need to add the API url and password
-to setting.js. You also need to configure [Home Assistants http component](https://home-assistant.io/components/http/)
+[Home Assistant REST API](https://home-assistant.io/developers/rest_api/) you need to create a "Long Lived Access Token" from the UI and add the created token and the API URI of your Home Assistant server to `src/env.js`. You also need to configure [Home Assistants http component](https://home-assistant.io/components/http/)
 to support CORS. Alternatively you can get around the CORS issues by proxying the API and frontend requests through
 a server such as [nginx](http://nginx.org) using the following configuration in nginx.conf:
 
@@ -41,6 +40,14 @@ http {
 
       proxy_set_header Upgrade $http_upgrade; # This is probably only needed for development setup
       proxy_set_header Connection $connection_upgrade; # This is probably only needed for development setup
+    }
+
+    location /api {
+      rewrite /api/(.*) /api/$1  break;
+      proxy_pass http://localhost:8123;
+      proxy_set_header Authorization "Bearer YOUR_LONG_LIVED_ACCESS_TOKEN_HERE"
+      proxy_pass_header Authorization;
+      proxy_redirect off;
     }
 
     location /api {
