@@ -1,4 +1,4 @@
-const homeAssistantApiUrl = 'http://macmini.local:7812/api'
+const homeAssistantApiUrl = 'http://10.0.1.12:7812/api'
 const homeAssistantApiBearerToken = ''
 
 export {

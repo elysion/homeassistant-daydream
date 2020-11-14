@@ -14,20 +14,22 @@ class Switches extends Component {
     return this.state[sw.entityId] && this.state[sw.entityId].isOn !== undefined ? this.state[sw.entityId].isOn : sw.isOn
   }
   render() {
-    return h.ul({ className: 'item-list' },
+    return <ul className='item-list'>{
       this.props.switches.map((sw, index) =>
-        h.li({
-          key: `switch-${index}`,
-          className: classNames({
+        <li
+          key={`switch-${index}`}
+          className={classNames({
             'switch-item': true,
             'switch-item__is-on': this.isOn(sw)
-          }),
-          onClick: () => {
+          })}
+          onClick={() => {
             switchClickedBus.push(sw.entityId)
             this.setState({[sw.entityId]: {isOn: !this.isOn(sw)}})
-          }
-        },
-          h.div({ className: 'switch-item-content' }, sw.name))))
+          }}>
+          <div className='switch-item-content'>{sw.name}</div>
+        </li>
+      )
+    }</ul>
   }
 }
 
