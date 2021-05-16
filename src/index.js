@@ -12,19 +12,16 @@ import {homeAssistantApiUrl, homeAssistantApiBearerToken} from './env'
 
 const startsWith = R.invoker(1, 'startsWith');
 
-const headers = {
-  'content-type': 'application/json',
-  'Authorization': `Bearer: ${homeAssistantApiBearerToken}`
-}
+$.ajaxSetup({
+  beforeSend: function(xhr) {
+    xhr.setRequestHeader('Authorization', `Bearer ${homeAssistantApiBearerToken}`)
+  }
+})
 
 const randomCoordinate = max => Math.round(Math.random() * max)
 
 const coordinates = Bacon.once().map(() => ({ x: randomCoordinate(50), y: randomCoordinate(200) }))
-
-const states = Bacon.fromPromise($.ajax({
-  url: `${homeAssistantApiUrl}/states`,
-  headers: headers
-}))
+const states = Bacon.fromPromise($.ajax(`${homeAssistantApiUrl}/states`))
 
 const isRunnableEntity = R.pipe(R.prop('entity_id'), R.either(startsWith('scene'), startsWith('script')))
 const isToggleableEntity = R.pipe(R.prop('entity_id'), R.anyPass([startsWith('input_boolean'), startsWith('switch'), startsWith('light')]))
